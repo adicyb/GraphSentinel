@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "graphsentinel"
+version = "0.1.0"
+description = "Multimodal graph-based framework for lateral movement detection in enterprise networks"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+    "networkx",
+    "pyyaml",
+    "pydantic",
+    "tqdm",
+    "matplotlib",
+    "seaborn",
+]
+
+[project.optional-dependencies]
+gnn = [
+    "torch",
+    "torch-geometric",
+]
+dashboard = [
+    "streamlit",
+    "plotly",
+]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "ruff",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

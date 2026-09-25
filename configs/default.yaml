@@ -1,0 +1,54 @@
+project:
+  name: GraphSentinel
+  version: "0.1.0"
+  random_seed: 42
+
+data:
+  dataset: LANL
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+  samples_dir: data/samples
+
+telemetry:
+  identity: true
+  network: true
+  endpoint: true
+
+graph:
+  node_types:
+    - user
+    - host
+    - process
+    - service
+
+  edge_types:
+    - AUTHENTICATED_TO
+    - CONNECTED_TO
+    - EXECUTED
+    - SPAWNED
+
+temporal:
+  window_seconds: 300
+  stride_seconds: 60
+
+models:
+  isolation_forest:
+    enabled: true
+
+  one_class_svm:
+    enabled: true
+
+  graphsage:
+    enabled: true
+
+  gat:
+    enabled: true
+
+detection:
+  behavioral_weight: 0.4
+  graph_weight: 0.4
+  temporal_weight: 0.2
+
+evaluation:
+  random_seed: 42
