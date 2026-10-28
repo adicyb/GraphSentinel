@@ -1,4 +1,4 @@
-# GraphSentinel
+# GraphSentinel(Paused)
 
 An open, multimodal graph neural network framework for lateral movement
 detection in enterprise networks.
